@@ -32,21 +32,21 @@ const updateBook = (request, response) => {
   const data = request.body;
   Book.findByIdAndUpdate(book_id, data, { new: true, runValidators: true })
     .then((book) => {
-      request.status(200).send(book);
+      response.status(200).send(book);
     })
     .catch((err) => {
-      request.status(500).send(err.message);
+      response.status(500).send(err.message);
     });
 };
 
 const deleteBook = (request, response) => {
   const { book_id } = request.params;
-  Book.filterByIdAndDelete(book_id)
-    .then((book) => {
-      request.status(200).send("Done");
+  Book.deleteOne({ _id: book_id })
+    .then((dbResponse) => {
+      response.status(200).send(dbResponse);
     })
     .catch((err) => {
-      request.status(500).send(err.message);
+      response.status(500).send(err.message);
     });
 };
 
