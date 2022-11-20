@@ -1,5 +1,5 @@
 # library-backend
-**Express, MongoDB**
+**Express.JS, MongoDB**
 
 Cервер на Express.js + MongoDB на основе REST API.<br/>
 REST API доступно по адресу `127.0.0.1:3000`
