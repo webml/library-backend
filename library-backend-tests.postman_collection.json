@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "8124ceae-4cc3-4741-8534-ad60682d77f2",
+		"name": "library-backend-tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23672399"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jack\",\r\n    \"lastName\": \"Ralfoero\",\r\n    \"username\": \"JayRay\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/users",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/users/637a2d41a07df0db9854a7a6",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users",
+						"637a2d41a07df0db9854a7a6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/users",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add book to user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"pm.variables.get(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/users/637a2bba944c724ca00cb1ba/addBook/637a3010ce06ae3a54632690",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users",
+						"637a2bba944c724ca00cb1ba",
+						"addBook",
+						"637a3010ce06ae3a54632690"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete book to user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"pm.variables.get(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/users/637a2bba944c724ca00cb1ba/deleteBook/637a3010ce06ae3a54632690",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users",
+						"637a2bba944c724ca00cb1ba",
+						"deleteBook",
+						"637a3010ce06ae3a54632690"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"text/plain\");\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Done\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/users/34",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users",
+						"34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": \"Alex Kilmor\",\r\n    \"title\": \"Robertson\",\r\n    \"year\": 1994\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/books",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/books/224523",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"books",
+						"224523"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/books",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/books/34",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"books",
+						"34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"text/plain\");\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Done\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/books/234532",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"books",
+						"234532"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not found",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

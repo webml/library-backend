@@ -11,6 +11,9 @@ const bookSchema = new mongoose.Schema({
     required: true,
     minlength: 2,
   },
+  year: {
+    type: Number,
+  },
 });
 
 module.exports = mongoose.model("book", bookSchema);

@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const userRouter = require("./routes/users");
 const bookRouter = require("./routes/books");
+const bodyParser = require("body-parser");
+const logOriginalURL = require("./middleware/logOriginalURL");
 
 dotenv.config();
 
@@ -16,9 +18,14 @@ mongoose.connect(DB_CONNECT, (err) => {
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
+app.use(logOriginalURL);
 
 app.use(userRouter);
 app.use(bookRouter);
+app.all("*", (request, response, next) => {
+  response.status(404).send("Not found");
+});
 
 app.listen(PORT, () => {
   console.log(`Server is started on ${API_URL}:${PORT}`);
